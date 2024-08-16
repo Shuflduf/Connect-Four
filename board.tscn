@@ -29,246 +29,285 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="Rows" type="VBoxContainer" parent="MarginContainer"]
+[node name="Columns" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Rows"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Columns"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer/Rows/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel2" type="Panel" parent="MarginContainer/Rows/HBoxContainer"]
+[node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel3" type="Panel" parent="MarginContainer/Rows/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel4" type="Panel" parent="MarginContainer/Rows/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel5" type="Panel" parent="MarginContainer/Rows/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel6" type="Panel" parent="MarginContainer/Rows/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel7" type="Panel" parent="MarginContainer/Rows/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Rows"]
-layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer/Rows/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel2" type="Panel" parent="MarginContainer/Rows/HBoxContainer2"]
+[node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel3" type="Panel" parent="MarginContainer/Rows/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel4" type="Panel" parent="MarginContainer/Rows/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel5" type="Panel" parent="MarginContainer/Rows/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel6" type="Panel" parent="MarginContainer/Rows/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel7" type="Panel" parent="MarginContainer/Rows/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Rows"]
-layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer/Rows/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel2" type="Panel" parent="MarginContainer/Rows/HBoxContainer3"]
+[node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel3" type="Panel" parent="MarginContainer/Rows/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel4" type="Panel" parent="MarginContainer/Rows/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel5" type="Panel" parent="MarginContainer/Rows/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel6" type="Panel" parent="MarginContainer/Rows/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel7" type="Panel" parent="MarginContainer/Rows/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Rows"]
-layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer/Rows/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel2" type="Panel" parent="MarginContainer/Rows/HBoxContainer4"]
+[node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel3" type="Panel" parent="MarginContainer/Rows/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel4" type="Panel" parent="MarginContainer/Rows/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel5" type="Panel" parent="MarginContainer/Rows/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel6" type="Panel" parent="MarginContainer/Rows/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel7" type="Panel" parent="MarginContainer/Rows/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Rows"]
-layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer/Rows/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel2" type="Panel" parent="MarginContainer/Rows/HBoxContainer5"]
+[node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel3" type="Panel" parent="MarginContainer/Rows/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel4" type="Panel" parent="MarginContainer/Rows/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel5" type="Panel" parent="MarginContainer/Rows/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel6" type="Panel" parent="MarginContainer/Rows/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="Panel7" type="Panel" parent="MarginContainer/Rows/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/Rows"]
-layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer/Rows/HBoxContainer6"]
-layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel2" type="Panel" parent="MarginContainer/Rows/HBoxContainer6"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Columns"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel3" type="Panel" parent="MarginContainer/Rows/HBoxContainer6"]
+[node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel4" type="Panel" parent="MarginContainer/Rows/HBoxContainer6"]
+[node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel5" type="Panel" parent="MarginContainer/Rows/HBoxContainer6"]
+[node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel6" type="Panel" parent="MarginContainer/Rows/HBoxContainer6"]
+[node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
-[node name="Panel7" type="Panel" parent="MarginContainer/Rows/HBoxContainer6"]
+[node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="MarginContainer/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="MarginContainer/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
