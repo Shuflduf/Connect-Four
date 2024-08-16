@@ -98,6 +98,8 @@ func check_win(input: Vector2i) -> bool:
 	for dir in DIRECTIONS:
 		while !out_of_bounds(first_piece - dir):
 			first_piece -= dir
+			if get_player(get_panel(first_piece)) != player:
+				break
 
 
 		for i in 4:
