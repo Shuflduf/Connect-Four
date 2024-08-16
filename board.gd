@@ -17,14 +17,15 @@ func set_piece(cell_pos: Vector2i, new_colour: Color):
 
 
 func _ready() -> void:
-	for i in columns.get_children():
-		i.gui_input.connect(func(event: InputEvent):
-			print("FBHDGFH")
-			if event is InputEventMouseButton:
-				if event.pressed:
-					if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
-						print("PLACE")
-						place_piece(i.get_index()))
+	for col in columns.get_children():
+		for cell in col.get_children():
+			cell.gui_input.connect(func(event: InputEvent):
+				print("FBHDGFH")
+				if event is InputEventMouseButton:
+					if event.pressed:
+						if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
+							print(cell)
+							place_piece(col.get_index()))
 
 func col_full(index):
 	if columns.get_child(index).get_child(0).name.is_valid_html_color():
