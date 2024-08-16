@@ -63,9 +63,8 @@ func get_player(piece: Panel) -> int:
 
 func get_panel(pos: Vector2i) -> Panel:
 
-	if columns.get_child_count() < pos.x + 1\
-			or columns.get_child(0).get_child_count() < pos.y + 1:
-		print("DKHKJGNDUM")
+	if out_of_bounds(pos):
+		return
 
 	var col = columns.get_child(pos.x)
 	var cell = col.get_child(pos.y)
@@ -93,31 +92,37 @@ func check_win(input: Vector2i) -> bool:
 
 
 
-	var won = true
-
 	for dir in DIRECTIONS:
 		while !out_of_bounds(first_piece - dir):
 			first_piece -= dir
 			if get_player(get_panel(first_piece)) != player:
 				break
 
+		#var won = true
+		if four_in_row(first_piece, dir):
+			print("WIN !!")
+			break
 
-		for i in 4:
+	return false
 
-			var new_pos = first_piece
-			print(dir * i)
-			new_pos += dir * i
-			if new_pos.x > columns.get_child_count() - 1 \
-					or new_pos.y > columns.get_child(0).get_child_count() - 1:
-				won = false
-				break
-			if get_player(get_panel(new_pos)) != player:
-				won = false
+func get_start(input: Vector2i, dir: Vector2i) -> Vector2i:
+	var player = get_player(get_panel(input))
+	var first = input
+	while !out_of_bounds(first - dir):
+		first -= dir
+		if get_player(get_panel(first)) != player:
+			break
 
-		if won:
-			print("AJHBFGNDm")
-
-	return won
+func four_in_row(start: Vector2i, dir: Vector2i) -> bool:
+	var player = get_player(get_panel(start))
+	for i in 4:
+		var new_pos = start
+		new_pos += dir * i
+		if out_of_bounds(new_pos):
+			return false
+		if get_player(get_panel(new_pos)) != player:
+			return false
+	return true
 
 
 func out_of_bounds(pos: Vector2i) -> bool:
