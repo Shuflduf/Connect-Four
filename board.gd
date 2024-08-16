@@ -7,6 +7,9 @@ var turn = 0
 var player_1_col = Color.RED
 var player_2_col = Color.BLUE
 
+# LEFT, UP, UPLEFT, DOWNLEFT
+const DIRECTIONS = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, -1)]
+
 func set_piece(cell_pos: Vector2i, new_colour: Color):
 	var col = columns.get_child(cell_pos.x)
 	var cell = col.get_child(cell_pos.y)
@@ -59,6 +62,11 @@ func get_player(piece: Panel) -> int:
 
 
 func get_panel(pos: Vector2i) -> Panel:
+
+	if columns.get_child_count() < pos.x + 1\
+			or columns.get_child(0).get_child_count() < pos.y + 1:
+		print("DKHKJGNDUM")
+
 	var col = columns.get_child(pos.x)
 	var cell = col.get_child(pos.y)
 	return cell
@@ -72,38 +80,47 @@ func place_piece(index: int):
 		if !piece_is_placed(cell) or i > cells.size() - 1:
 			var piece_col = player_1_col if turn == 0 else player_2_col
 			set_piece(Vector2i(index, i), piece_col)
-			win_horizontally(Vector2(index, i))
+			check_win(Vector2(index, i))
 			break
 
 	turn += 1
 	turn %= 2
 
 
-func win_horizontally(input: Vector2i) -> bool:
+func check_win(input: Vector2i) -> bool:
 	var player = get_player(get_panel(input))
 	var first_piece = input
 
-	#print(first_piece)
-	#first_piece.x -= 1
-
-	while get_player(get_panel(first_piece - Vector2i(1, 0))) == player:
-		first_piece.x -= 1
-
-	print(first_piece)
 
 
 	var won = true
-	for i in 4:
 
-		var new_pos = first_piece
-		new_pos.x += i
-		if new_pos.x > columns.get_child_count() - 1:
-			won = false
-			break
-		if get_player(get_panel(new_pos)) != player:
-			won = false
+	for dir in DIRECTIONS:
+		while !out_of_bounds(first_piece - dir):
 
-	if won:
-		print("AJHBFGNDm")
+			first_piece.x -= 1
+
+
+		for i in 4:
+
+			var new_pos = first_piece
+			print(dir * i)
+			new_pos += dir * i
+			if new_pos.x > columns.get_child_count() - 1 \
+					or new_pos.y > columns.get_child(0).get_child_count() - 1:
+				won = false
+				break
+			if get_player(get_panel(new_pos)) != player:
+				won = false
+
+		if won:
+			print("AJHBFGNDm")
 
 	return won
+
+
+func out_of_bounds(pos: Vector2i) -> bool:
+	if columns.get_child_count() < pos.x + 1\
+			or columns.get_child(0).get_child_count() < pos.y + 1:
+		return true
+	return false
