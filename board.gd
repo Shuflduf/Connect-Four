@@ -56,6 +56,7 @@ func get_player(piece: Panel) -> int:
 			return 0
 		player_2_col:
 			return 1
+	return -1
 	
 
 func get_panel(pos: Vector2i) -> Panel:
