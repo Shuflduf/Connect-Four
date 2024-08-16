@@ -354,5 +354,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
-
-[connection signal="gui_input" from="MarginContainer/Columns/VBoxContainer" to="." method="_on_v_box_container_gui_input"]
