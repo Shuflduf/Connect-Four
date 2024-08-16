@@ -97,8 +97,7 @@ func check_win(input: Vector2i) -> bool:
 
 	for dir in DIRECTIONS:
 		while !out_of_bounds(first_piece - dir):
-
-			first_piece.x -= 1
+			first_piece -= dir
 
 
 		for i in 4:
