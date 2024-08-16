@@ -17,20 +17,32 @@ func set_piece(cell_pos: Vector2i, new_colour: Color):
 
 
 func _ready() -> void:
-	place_piece(1)
-	place_piece(1)
+	for i in columns.get_children():
+		i.gui_input.connect(func(event: InputEvent):
+			print("FBHDGFH")
+			if event is InputEventMouseButton:
+				if event.pressed:
+					if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
+						print("PLACE")
+						place_piece(i.get_index()))
+
+func col_full(index):
+	if columns.get_child(index).get_child(0).name.is_valid_html_color():
+		return true
+	return false
 
 func place_piece(index: int):
+	if col_full(index):
+		return
 	var cells = columns.get_child(index).get_children()
-	#cells.reverse()
-	#var placed = false
-
 	for i in range(cells.size() - 1, -1, -1):
 		var cell = cells[i]
 		print(cell)
 		if (not cell.name.is_valid_html_color()) or i > cells.size() - 1:
-			#print(cell.name.is_valid_html_color())
-			#print(i > columns.get_child_count() - 3)
 			set_piece(Vector2i(index, i), Color.RED)
-			#placed = true
 			break
+
+
+func _on_v_box_container_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		print("COL 1 CLICK")
