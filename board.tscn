@@ -41,36 +41,42 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Columns"]
@@ -81,36 +87,42 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Columns"]
@@ -121,36 +133,42 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/Columns"]
@@ -161,36 +179,42 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/Columns"]
@@ -201,36 +225,42 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="MarginContainer/Columns"]
@@ -241,36 +271,42 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="VBoxContainer7" type="VBoxContainer" parent="MarginContainer/Columns"]
@@ -281,36 +317,42 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel5" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="Panel6" type="Panel" parent="MarginContainer/Columns/VBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [connection signal="gui_input" from="MarginContainer/Columns/VBoxContainer" to="." method="_on_v_box_container_gui_input"]
