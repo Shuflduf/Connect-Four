@@ -87,16 +87,13 @@ func place_piece(index: int):
 
 
 func check_win(input: Vector2i) -> bool:
-	var player = get_player(get_panel(input))
-	var first_piece = input
+	#var player = get_player(get_panel(input))
+	#var first_piece = input
 
 
 
 	for dir in DIRECTIONS:
-		while !out_of_bounds(first_piece - dir):
-			first_piece -= dir
-			if get_player(get_panel(first_piece)) != player:
-				break
+		var first_piece = get_start(input, dir)
 
 		#var won = true
 		if four_in_row(first_piece, dir):
@@ -109,9 +106,12 @@ func get_start(input: Vector2i, dir: Vector2i) -> Vector2i:
 	var player = get_player(get_panel(input))
 	var first = input
 	while !out_of_bounds(first - dir):
-		first -= dir
-		if get_player(get_panel(first)) != player:
+		if get_player(get_panel(first - dir)) != player:
 			break
+		first -= dir
+
+	return first
+
 
 func four_in_row(start: Vector2i, dir: Vector2i) -> bool:
 	var player = get_player(get_panel(start))
