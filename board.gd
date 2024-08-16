@@ -2,7 +2,6 @@ extends Control
 
 @onready var columns: HBoxContainer = $MarginContainer/Columns
 
-var player_1_turn = true
 var turn = 0
 
 var player_1_col = Color.RED
@@ -11,7 +10,6 @@ var player_2_col = Color.BLUE
 func set_piece(cell_pos: Vector2i, new_colour: Color):
 	var col = columns.get_child(cell_pos.x)
 	var cell = col.get_child(cell_pos.y)
-	#(cell, Color.RED)
 
 	var panel = cell.get_theme_stylebox("panel").duplicate()
 	panel.bg_color = new_colour
@@ -44,6 +42,10 @@ func piece_is_placed(piece: Panel) -> bool:
 	return is_color
 
 func get_player(piece: Panel) -> int:
+
+	if !piece.name.get_slice("C", 0).is_valid_html_color():
+		return -1
+
 	var colour: Color
 
 	colour = Color(piece.name.get_slice("C", 0))
@@ -68,18 +70,40 @@ func place_piece(index: int):
 		var cell = cells[i]
 
 		if !piece_is_placed(cell) or i > cells.size() - 1:
-			var piece_col = player_1_col if player_1_turn else player_2_col
+			var piece_col = player_1_col if turn == 0 else player_2_col
 			set_piece(Vector2i(index, i), piece_col)
 			win_horizontally(Vector2(index, i))
 			break
-	player_1_turn = !player_1_turn
-	turn = int(player_1_turn)
+
+	turn += 1
+	turn %= 2
 
 
 func win_horizontally(input: Vector2i) -> bool:
 	var player = get_player(get_panel(input))
 	var first_piece = input
-	while get_player(get_panel(first_piece)) != player:
+
+	#print(first_piece)
+	#first_piece.x -= 1
+
+	while get_player(get_panel(first_piece - Vector2i(1, 0))) == player:
 		first_piece.x -= 1
+
 	print(first_piece)
-	return false
+
+
+	var won = true
+	for i in 4:
+
+		var new_pos = first_piece
+		new_pos.x += i
+		if new_pos.x > columns.get_child_count() - 1:
+			won = false
+			break
+		if get_player(get_panel(new_pos)) != player:
+			won = false
+
+	if won:
+		print("AJHBFGNDm")
+
+	return won
