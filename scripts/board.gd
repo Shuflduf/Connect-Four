@@ -17,6 +17,8 @@ var player_2_col = Color.BLUE
 
 var default_colour = Color.WHITE
 
+var assigned_turn = 0
+
 # LEFT, UP, UPLEFT, DOWNLEFT
 const DIRECTIONS = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, -1)]
 
@@ -28,6 +30,7 @@ func _ready() -> void:
 
 		Global.Connection.JOIN:
 			peer.create_client(Global.ip, Global.port)
+			assigned_turn = 1
 
 		Global.Connection.HOST:
 			peer.create_server(Global.port)
@@ -43,6 +46,8 @@ func connect_children():
 				if event.pressed:
 					if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
 						if !playing:
+							return
+						if turn != assigned_turn:
 							return
 						if col_full(col.get_index()):
 							return
