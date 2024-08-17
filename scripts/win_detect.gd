@@ -17,8 +17,11 @@ func check_win(input: Vector2i) -> bool:
 
 		if four_in_row(first_piece, dir):
 			print("WIN !!")
+			%WinLabel.show()
+			%WinLabel.text = "Player " + str(get_parent().turn + 1) + " Wins!"
 			parent.playing = false
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(1.5).timeout
+			%WinLabel.hide()
 			parent.reset()
 
 

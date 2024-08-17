@@ -10,7 +10,7 @@ func _on_host_pressed() -> void:
 
 func _on_join_pressed() -> void:
 	Global.connection_type = Global.Connection.JOIN
-	if !$VBoxContainer/Local.pressed:
+	if !%Local.button_pressed:
 		var decode = Encrypter.decrypt(%JoinCode.text)
 		Global.ip = decode.get_slice(":", 0)
 		Global.port = int(decode.get_slice(":", 1))
@@ -18,5 +18,5 @@ func _on_join_pressed() -> void:
 
 
 func transition():
-	Global.local = $VBoxContainer/Local.pressed
+	Global.local = %Local.button_pressed
 	SceneManager.transition_to(game_scene)

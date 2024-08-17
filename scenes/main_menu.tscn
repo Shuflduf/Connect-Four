@@ -19,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -59,12 +60,28 @@ theme_override_font_sizes/font_size = 46
 placeholder_text = "Join Code"
 expand_to_text_length = true
 
-[node name="Local" type="CheckButton" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Local" type="CheckButton" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+tooltip_text = "If true, then hosting will host locally with the specified port, and connect will connect locally according to the port"
 theme_override_font_sizes/font_size = 46
 button_pressed = true
 text = "Local"
+
+[node name="Port" type="SpinBox" parent="VBoxContainer/HBoxContainer3"]
+visible = false
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+min_value = 8080.0
+max_value = 65534.0
+value = 8080.0
+prefix = "Port"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Join" to="." method="_on_join_pressed"]

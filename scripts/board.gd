@@ -63,7 +63,9 @@ func _ready() -> void:
 			if !Global.local:
 				upnp_thread = Thread.new()
 				upnp_thread.start(_upnp_setup.bind(Global.port))
-			multiplayer.peer_connected.connect(func(_id): playing = true)
+			multiplayer.peer_connected.connect(func(id): 
+				print(id)
+				playing = true)
 			peer.create_server(Global.port)
 
 	multiplayer.multiplayer_peer = peer
@@ -171,4 +173,5 @@ func out_of_bounds(pos: Vector2i) -> bool:
 
 func _exit_tree():
 	# Wait for thread finish here to handle game exit while the thread is running.
-	upnp_thread.wait_to_finish()
+	if !Global.local:
+		upnp_thread.wait_to_finish()
