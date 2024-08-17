@@ -9,6 +9,10 @@ func _on_host_pressed() -> void:
 
 func _on_join_pressed() -> void:
 	Global.connection_type = Global.Connection.JOIN
+	var decode = Encrypter.decrypt(%JoinCode.text)
+	Global.ip = decode.get_slice(":", 0)
+	Global.port = int(decode.get_slice(":", 1))
+	print(decode)
 	transition()
 
 

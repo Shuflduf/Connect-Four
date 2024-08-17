@@ -41,40 +41,16 @@ func _upnp_setup(server_port):
 		call_deferred("set_code_label") 
 
 func set_code_label():
-	var code = ""
-	var random_offset = randi_range(0, 100)
-	for i in Global.ip.get_slice(":", 0).split("."):
-		code += char(int(i) + random_offset)
-		
-	code += char(":".unicode_at(0) + random_offset)
-	
-	for i in str(Global.port):
-		code += char(int(i) + random_offset)
-		
-	code += char(random_offset)
+	var ip = Global.ip + ":" + str(Global.port)
+	print(ip)
+	var code = Encrypter.encrypt(ip)
 	$LobbyInfo/LobbyCode.text = code
 	$LobbyInfo/CopyCode.pressed.connect(func():
 		DisplayServer.clipboard_set(code))
 	
 	print(code)
-	
-	decode(code)
-	
-func decode(code: String) -> String:
-	var decoded = ""
-	var random_offset = code.right(1).unicode_at(0)
-	for i: String in code.trim_suffix(code.right(1)):
-		if i.unicode_at(0) == ":".unicode_at(0) + random_offset:
-			decoded = decoded.trim_suffix(".")
-			decoded += ":"
-			continue
-		decoded += str(i.unicode_at(0) - random_offset)
-		decoded += "."
-		
-	
-	decoded = decoded.trim_suffix(".")
-	print(decoded)
-	return decoded
+	#print(Encrypter.decrypt(code))
+
 
 func _ready() -> void:
 	randomize()
