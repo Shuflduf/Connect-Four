@@ -37,10 +37,15 @@ func _upnp_setup(server_port):
 		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "UDP")
 		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "TCP")
 		emit_signal("upnp_completed", OK)
+		Global.ip = upnp.query_external_address()
+		set_code_label()
 
 func set_code_label():
 	var code = ""
+	for i in Global.ip.split("."):
+		code += char(int(i))
 	
+	print(code)
 
 func _ready() -> void:
 	
