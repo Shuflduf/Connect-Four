@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp5d00xsoolw1"]
 
-[ext_resource type="Script" path="res://board.gd" id="1_c6eri"]
-[ext_resource type="Script" path="res://win_detect.gd" id="2_r4303"]
-[ext_resource type="Shader" path="res://main.gdshader" id="3_rol8i"]
+[ext_resource type="Script" path="res://scripts/board.gd" id="1_alw1v"]
+[ext_resource type="Script" path="res://scripts/win_detect.gd" id="2_t064f"]
+[ext_resource type="Shader" path="res://scripts/main.gdshader" id="3_1qwg4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b54j4"]
 bg_color = Color(1, 1, 1, 1)
@@ -17,7 +17,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y305x"]
-shader = ExtResource("3_rol8i")
+shader = ExtResource("3_1qwg4")
 shader_parameter/color_gap = Color(0.25, 0.25, 0.25, 0.235294)
 shader_parameter/color_stripe = Color(0.14, 0.14, 0.14, 0.235294)
 shader_parameter/divisions = 16.0
@@ -33,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_c6eri")
+script = ExtResource("1_alw1v")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -373,7 +373,7 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="WinDetect" type="Node" parent="."]
-script = ExtResource("2_r4303")
+script = ExtResource("2_t064f")
 
 [node name="Panel" type="Panel" parent="."]
 z_index = -100
