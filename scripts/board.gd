@@ -46,7 +46,7 @@ func connect_children():
 							return
 						if col_full(col.get_index()):
 							return
-						place_piece(col.get_index()))
+						place_piece.rpc(col.get_index()))
 
 
 func reset():
