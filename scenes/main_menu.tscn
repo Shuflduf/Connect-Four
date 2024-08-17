@@ -21,18 +21,42 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Host" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Host" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 46
 text = "Host
 "
 
-[node name="Join" type="Button" parent="VBoxContainer"]
+[node name="JoinCode" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+min_value = 8080.0
+max_value = 65534.0
+value = 8080.0
+prefix = "Port"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Join" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 46
 text = "Connect"
 
-[connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_join_pressed"]
+[node name="JoinCode" type="LineEdit" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+placeholder_text = "Join Code"
+expand_to_text_length = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Join" to="." method="_on_join_pressed"]
