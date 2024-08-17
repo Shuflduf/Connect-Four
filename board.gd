@@ -19,6 +19,7 @@ const DIRECTIONS = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 
 func reset():
 	playing = true
 	turn = 0
+	update_bg_color()
 	var panel = columns.get_child(0).get_child(0).get_theme_stylebox("panel")
 	panel.bg_color = default_colour
 	for col in columns.get_children():
@@ -49,6 +50,17 @@ func _ready() -> void:
 						if col_full(col.get_index()):
 							return
 						place_piece(col.get_index()))
+
+func update_bg_color():
+	var new_col: Color
+	match turn:
+		0:
+			new_col = player_1_col
+		1:
+			new_col = player_2_col
+
+	$Colour.modulate = new_col
+
 
 
 
@@ -100,11 +112,12 @@ func place_piece(index: int):
 			var piece_col = player_1_col if turn == 0 else player_2_col
 			set_piece(Vector2i(index, i), piece_col)
 			placed.emit(Vector2i(index, i))
-			#check_win(Vector2(index, i))
 			break
 
 	turn += 1
 	turn %= 2
+
+	update_bg_color()
 
 func out_of_bounds(pos: Vector2i) -> bool:
 	if columns.get_child_count() < pos.x + 1\

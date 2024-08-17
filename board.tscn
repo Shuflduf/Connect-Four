@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp5d00xsoolw1"]
+[gd_scene load_steps=6 format=3 uid="uid://bp5d00xsoolw1"]
 
 [ext_resource type="Script" path="res://board.gd" id="1_c6eri"]
 [ext_resource type="Script" path="res://win_detect.gd" id="2_r4303"]
+[ext_resource type="Shader" path="res://main.gdshader" id="3_rol8i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b54j4"]
 bg_color = Color(1, 1, 1, 1)
@@ -10,6 +11,19 @@ border_width_top = 15
 border_width_right = 15
 border_width_bottom = 15
 border_color = Color(0.194349, 0.194349, 0.194349, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y305x"]
+shader = ExtResource("3_rol8i")
+shader_parameter/color_gap = Color(0.25, 0.25, 0.25, 0.235294)
+shader_parameter/color_stripe = Color(0.14, 0.14, 0.14, 0.235294)
+shader_parameter/divisions = 16.0
+shader_parameter/stripe_bias = 2.0
+shader_parameter/speed = 0.02
+shader_parameter/angle = 0.7854
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -360,3 +374,25 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
 
 [node name="WinDetect" type="Node" parent="."]
 script = ExtResource("2_r4303")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -100
+material = SubResource("ShaderMaterial_y305x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Colour" type="Panel" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = -101
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
