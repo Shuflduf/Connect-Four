@@ -9,8 +9,3 @@ enum Connection {
 	HOST,
 	JOIN
 }
-
-func _ready() -> void:
-	#print(UPNP.new().query_external_address())
-	
-	print(ip)

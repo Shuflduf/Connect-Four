@@ -36,33 +36,44 @@ func _upnp_setup(server_port):
 	if upnp.get_gateway() and upnp.get_gateway().is_valid_gateway():
 		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "UDP")
 		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "TCP")
-		emit_signal("upnp_completed", OK)
+		call_deferred("emit_signal", "upnp_completed", OK)
 		Global.ip = upnp.query_external_address()
 		call_deferred("set_code_label") 
 
 func set_code_label():
 	var code = ""
 	var random_offset = randi_range(0, 100)
-	print("IP: ", Global.ip)
-	for i in Global.ip.split("."):
+	for i in Global.ip.get_slice(":", 0).split("."):
 		code += char(int(i) + random_offset)
+		
+	code += char(":".unicode_at(0) + random_offset)
+	
+	for i in str(Global.port):
+		code += char(int(i) + random_offset)
+		
 	code += char(random_offset)
-	print("Code: ", code)
 	$LobbyInfo/LobbyCode.text = code
 	$LobbyInfo/CopyCode.pressed.connect(func():
 		DisplayServer.clipboard_set(code))
+	
+	print(code)
 	
 	decode(code)
 	
 func decode(code: String) -> String:
 	var decoded = ""
-	var random_offset = int(code.right(1))
-	print(char(random_offset))
-	for i: String in code.get_slice(char(random_offset), 0):
+	var random_offset = code.right(1).unicode_at(0)
+	for i: String in code.trim_suffix(code.right(1)):
+		if i.unicode_at(0) == ":".unicode_at(0) + random_offset:
+			decoded = decoded.trim_suffix(".")
+			decoded += ":"
+			continue
 		decoded += str(i.unicode_at(0) - random_offset)
 		decoded += "."
+		
 	
-	print("Decode: ", decoded)
+	decoded = decoded.trim_suffix(".")
+	print(decoded)
 	return decoded
 
 func _ready() -> void:
