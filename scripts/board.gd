@@ -22,9 +22,25 @@ var assigned_turn = 0
 # LEFT, UP, UPLEFT, DOWNLEFT
 const DIRECTIONS = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, -1)]
 
+var upnp_thread: Thread
+func _upnp_setup(server_port):
+	# UPNP queries take some time.
+	var upnp = UPNP.new()
+	var err = upnp.discover()
+
+	if err != OK:
+		push_error(str(err))
+		emit_signal("upnp_completed", err)
+		return
+
+	if upnp.get_gateway() and upnp.get_gateway().is_valid_gateway():
+		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "UDP")
+		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "TCP")
+		emit_signal("upnp_completed", OK)
+
 
 func _ready() -> void:
-
+	
 	var peer = ENetMultiplayerPeer.new()
 	match Global.connection_type:
 
@@ -33,6 +49,9 @@ func _ready() -> void:
 			assigned_turn = 1
 
 		Global.Connection.HOST:
+			upnp_thread = Thread.new()
+			upnp_thread.start(_upnp_setup.bind(Global.port))
+			
 			peer.create_server(Global.port)
 
 	multiplayer.multiplayer_peer = peer
@@ -136,3 +155,8 @@ func out_of_bounds(pos: Vector2i) -> bool:
 			or columns.get_child(0).get_child_count() < pos.y + 1:
 		return true
 	return false
+
+
+func _exit_tree():
+	# Wait for thread finish here to handle game exit while the thread is running.
+	upnp_thread.wait_to_finish()
