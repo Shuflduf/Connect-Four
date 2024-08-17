@@ -38,6 +38,9 @@ func _upnp_setup(server_port):
 		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "TCP")
 		emit_signal("upnp_completed", OK)
 
+func set_code_label():
+	var code = ""
+	
 
 func _ready() -> void:
 	
