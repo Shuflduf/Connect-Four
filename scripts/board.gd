@@ -20,6 +20,35 @@ var default_colour = Color.WHITE
 # LEFT, UP, UPLEFT, DOWNLEFT
 const DIRECTIONS = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, -1)]
 
+
+func _ready() -> void:
+
+	var peer = ENetMultiplayerPeer.new()
+	match Global.connection_type:
+
+		Global.Connection.JOIN:
+			peer.create_client(Global.ip, Global.port)
+
+		Global.Connection.HOST:
+			peer.create_server(Global.port)
+
+	multiplayer.multiplayer_peer = peer
+	$ConnectionLabel.text = str(Global.connection_type)
+	connect_children()
+
+func connect_children():
+	for col in columns.get_children():
+		col.gui_input.connect(func(event: InputEvent):
+			if event is InputEventMouseButton:
+				if event.pressed:
+					if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
+						if !playing:
+							return
+						if col_full(col.get_index()):
+							return
+						place_piece(col.get_index()))
+
+
 func reset():
 	playing = true
 	turn = 0
@@ -44,17 +73,7 @@ func set_piece(cell_pos: Vector2i, new_colour: Color):
 	cell.name = str(new_colour.to_html(false) + "C")
 
 
-func _ready() -> void:
-	for col in columns.get_children():
-		col.gui_input.connect(func(event: InputEvent):
-			if event is InputEventMouseButton:
-				if event.pressed:
-					if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
-						if !playing:
-							return
-						if col_full(col.get_index()):
-							return
-						place_piece(col.get_index()))
+
 
 func col_full(index):
 	if piece_is_placed(columns.get_child(index).get_child(0)):
@@ -85,7 +104,6 @@ func get_player(piece: Panel) -> int:
 
 
 func get_panel(pos: Vector2i) -> Panel:
-
 	if out_of_bounds(pos):
 		return
 
@@ -93,7 +111,7 @@ func get_panel(pos: Vector2i) -> Panel:
 	var cell = col.get_child(pos.y)
 	return cell
 
-
+@rpc("any_peer", "call_local", "reliable")
 func place_piece(index: int):
 	var cells = columns.get_child(index).get_children()
 	for i in range(cells.size() - 1, -1, -1):

@@ -25,7 +25,7 @@ func transition_to(scene: String) -> void:
 	var root: Window = get_tree().get_root()
 
 	root.get_child(root.get_child_count() - 1).queue_free()
-	root.add_child(new_scene)
+	root.add_child(new_scene, true)
 
 	transition_out()
 	await transitioned_out
