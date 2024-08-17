@@ -5,7 +5,7 @@ extends Node
 static func encrypt(input: String) -> String:
 	randomize()
 	var code = ""
-	var random_offset = randi_range(0, 100)
+	var random_offset = randi_range(90, 150)
 	for i in input.get_slice(":", 0).split("."):
 		code += char(int(i) + random_offset)
 		
@@ -18,6 +18,7 @@ static func encrypt(input: String) -> String:
 static func decrypt(input: String) -> String:
 	var decoded = ""
 	var random_offset = input.right(1).unicode_at(0)
+	print(random_offset)
 	var on_port = false
 	for i: String in input:
 		if i.unicode_at(0) == ":".unicode_at(0) + random_offset:
