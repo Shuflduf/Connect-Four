@@ -42,25 +42,31 @@ func _upnp_setup(server_port):
 
 func set_code_label():
 	var code = ""
+	var random_offset = randi_range(0, 100)
+	print("IP: ", Global.ip)
 	for i in Global.ip.split("."):
-		code += char(int(i))
-	print(code)
+		code += char(int(i) + random_offset)
+	code += char(random_offset)
+	print("Code: ", code)
+	$LobbyInfo/LobbyCode.text = code
 	$LobbyInfo/CopyCode.pressed.connect(func():
 		DisplayServer.clipboard_set(code))
 	
+	decode(code)
 	
 func decode(code: String) -> String:
 	var decoded = ""
-	for i: String in code:
-		decoded += str(i.unicode_at(0))
+	var random_offset = int(code.right(1))
+	print(char(random_offset))
+	for i: String in code.get_slice(char(random_offset), 0):
+		decoded += str(i.unicode_at(0) - random_offset)
 		decoded += "."
 	
-	
-	print(decoded)
+	print("Decode: ", decoded)
 	return decoded
 
 func _ready() -> void:
-	
+	randomize()
 	var peer = ENetMultiplayerPeer.new()
 	match Global.connection_type:
 
