@@ -1,12 +1,16 @@
 extends Control
 
 signal placed(pos: Vector2i)
+signal played_turn
 
 @onready var columns: HBoxContainer = $MarginContainer/Columns
 
 var playing = true
 
-var turn = 0
+var turn = 0:
+	set(value):
+		turn = value
+		played_turn.emit()
 
 var player_1_col = Color.RED
 var player_2_col = Color.BLUE
@@ -19,7 +23,8 @@ const DIRECTIONS = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 
 func reset():
 	playing = true
 	turn = 0
-	update_bg_color()
+	#update_bg_color()
+
 	var panel = columns.get_child(0).get_child(0).get_theme_stylebox("panel")
 	panel.bg_color = default_colour
 	for col in columns.get_children():
@@ -50,20 +55,6 @@ func _ready() -> void:
 						if col_full(col.get_index()):
 							return
 						place_piece(col.get_index()))
-
-func update_bg_color():
-	var new_col: Color
-	match turn:
-		0:
-			new_col = player_1_col
-		1:
-			new_col = player_2_col
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property($Colour, "modulate", new_col, 0.3)
-
-
-
-
 
 func col_full(index):
 	if piece_is_placed(columns.get_child(index).get_child(0)):
@@ -116,8 +107,6 @@ func place_piece(index: int):
 
 	turn += 1
 	turn %= 2
-
-	update_bg_color()
 
 func out_of_bounds(pos: Vector2i) -> bool:
 	if columns.get_child_count() < pos.x + 1\
