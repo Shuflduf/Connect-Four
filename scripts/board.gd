@@ -38,14 +38,26 @@ func _upnp_setup(server_port):
 		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "TCP")
 		emit_signal("upnp_completed", OK)
 		Global.ip = upnp.query_external_address()
-		set_code_label()
+		call_deferred("set_code_label") 
 
 func set_code_label():
 	var code = ""
 	for i in Global.ip.split("."):
 		code += char(int(i))
-	
 	print(code)
+	$LobbyInfo/CopyCode.pressed.connect(func():
+		DisplayServer.clipboard_set(code))
+	
+	
+func decode(code: String) -> String:
+	var decoded = ""
+	for i: String in code:
+		decoded += str(i.unicode_at(0))
+		decoded += "."
+	
+	
+	print(decoded)
+	return decoded
 
 func _ready() -> void:
 	
@@ -63,7 +75,7 @@ func _ready() -> void:
 			peer.create_server(Global.port)
 
 	multiplayer.multiplayer_peer = peer
-	$ConnectionLabel.text = str(Global.connection_type)
+	#$ConnectionLabel.text = str(Global.connection_type)
 	connect_children()
 
 func connect_children():
