@@ -1,14 +1,32 @@
 extends Control
 
+signal placed(pos: Vector2i)
+
 @onready var columns: HBoxContainer = $MarginContainer/Columns
+
+var playing = true
 
 var turn = 0
 
 var player_1_col = Color.RED
 var player_2_col = Color.BLUE
 
+var default_colour = Color.WHITE
+
 # LEFT, UP, UPLEFT, DOWNLEFT
 const DIRECTIONS = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, -1)]
+
+func reset():
+	playing = true
+	turn = 0
+	var panel = columns.get_child(0).get_child(0).get_theme_stylebox("panel")
+	panel.bg_color = default_colour
+	for col in columns.get_children():
+		for cell in col.get_children():
+			cell.add_theme_stylebox_override("panel", panel)
+			cell.name = "P"
+
+
 
 func set_piece(cell_pos: Vector2i, new_colour: Color):
 	var col = columns.get_child(cell_pos.x)
@@ -26,6 +44,8 @@ func _ready() -> void:
 			if event is InputEventMouseButton:
 				if event.pressed:
 					if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
+						if !playing:
+							return
 						if col_full(col.get_index()):
 							return
 						place_piece(col.get_index()))
@@ -79,51 +99,12 @@ func place_piece(index: int):
 		if !piece_is_placed(cell) or i > cells.size() - 1:
 			var piece_col = player_1_col if turn == 0 else player_2_col
 			set_piece(Vector2i(index, i), piece_col)
-			check_win(Vector2(index, i))
+			placed.emit(Vector2i(index, i))
+			#check_win(Vector2(index, i))
 			break
 
 	turn += 1
 	turn %= 2
-
-
-func check_win(input: Vector2i) -> bool:
-	#var player = get_player(get_panel(input))
-	#var first_piece = input
-
-
-
-	for dir in DIRECTIONS:
-		var first_piece = get_start(input, dir)
-
-		#var won = true
-		if four_in_row(first_piece, dir):
-			print("WIN !!")
-			break
-
-	return false
-
-func get_start(input: Vector2i, dir: Vector2i) -> Vector2i:
-	var player = get_player(get_panel(input))
-	var first = input
-	while !out_of_bounds(first - dir):
-		if get_player(get_panel(first - dir)) != player:
-			break
-		first -= dir
-
-	return first
-
-
-func four_in_row(start: Vector2i, dir: Vector2i) -> bool:
-	var player = get_player(get_panel(start))
-	for i in 4:
-		var new_pos = start
-		new_pos += dir * i
-		if out_of_bounds(new_pos):
-			return false
-		if get_player(get_panel(new_pos)) != player:
-			return false
-	return true
-
 
 func out_of_bounds(pos: Vector2i) -> bool:
 	if columns.get_child_count() < pos.x + 1\

@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp5d00xsoolw1"]
+[gd_scene load_steps=4 format=3 uid="uid://bp5d00xsoolw1"]
 
 [ext_resource type="Script" path="res://board.gd" id="1_c6eri"]
+[ext_resource type="Script" path="res://win_detect.gd" id="2_r4303"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b54j4"]
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 15
 border_width_top = 15
 border_width_right = 15
 border_width_bottom = 15
+border_color = Color(0.194349, 0.194349, 0.194349, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -354,3 +357,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_b54j4")
+
+[node name="WinDetect" type="Node" parent="."]
+script = ExtResource("2_r4303")
