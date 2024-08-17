@@ -4,17 +4,19 @@ extends Control
 
 func _on_host_pressed() -> void:
 	Global.connection_type = Global.Connection.HOST
+	Global.port = $VBoxContainer/HBoxContainer/JoinCode.value
 	transition()
 
 
 func _on_join_pressed() -> void:
 	Global.connection_type = Global.Connection.JOIN
-	var decode = Encrypter.decrypt(%JoinCode.text)
-	Global.ip = decode.get_slice(":", 0)
-	Global.port = int(decode.get_slice(":", 1))
-	print(decode)
+	if !$VBoxContainer/Local.pressed:
+		var decode = Encrypter.decrypt(%JoinCode.text)
+		Global.ip = decode.get_slice(":", 0)
+		Global.port = int(decode.get_slice(":", 1))
 	transition()
 
 
 func transition():
+	Global.local = $VBoxContainer/Local.pressed
 	SceneManager.transition_to(game_scene)

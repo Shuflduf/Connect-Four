@@ -36,20 +36,17 @@ func _upnp_setup(server_port):
 	if upnp.get_gateway() and upnp.get_gateway().is_valid_gateway():
 		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "UDP")
 		upnp.add_port_mapping(server_port, server_port, ProjectSettings.get_setting("application/config/name"), "TCP")
-		call_deferred("emit_signal", "upnp_completed", OK)
+		#call_deferred("emit_signal", "upnp_completed", OK)
 		Global.ip = upnp.query_external_address()
 		call_deferred("set_code_label") 
 
 func set_code_label():
 	var ip = Global.ip + ":" + str(Global.port)
-	print(ip)
 	var code = Encrypter.encrypt(ip)
 	$LobbyInfo/LobbyCode.text = code
 	$LobbyInfo/CopyCode.pressed.connect(func():
 		DisplayServer.clipboard_set(code))
 	
-	print(code)
-	#print(Encrypter.decrypt(code))
 
 
 func _ready() -> void:
@@ -62,9 +59,11 @@ func _ready() -> void:
 			assigned_turn = 1
 
 		Global.Connection.HOST:
-			upnp_thread = Thread.new()
-			upnp_thread.start(_upnp_setup.bind(Global.port))
-			
+			playing = false
+			if !Global.local:
+				upnp_thread = Thread.new()
+				upnp_thread.start(_upnp_setup.bind(Global.port))
+			multiplayer.peer_connected.connect(func(_id): playing = true)
 			peer.create_server(Global.port)
 
 	multiplayer.multiplayer_peer = peer

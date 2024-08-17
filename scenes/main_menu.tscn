@@ -59,5 +59,12 @@ theme_override_font_sizes/font_size = 46
 placeholder_text = "Join Code"
 expand_to_text_length = true
 
+[node name="Local" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 46
+button_pressed = true
+text = "Local"
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Join" to="." method="_on_join_pressed"]
